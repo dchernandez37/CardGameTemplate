@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.util.ArrayList?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            style="-fx-background-color: CadetBlue;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0"
+              style="-fx-border-color: 'blue'; -fx-background-radius: 25;" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                           translateY="40.0">
+                    <image>
+                        <Image url="@../images/purple-back.png"/>
+                    </image>
+                </ImageView>
+                <HBox alignment="CENTER"
+                      style="-fx-border-color: 'Gold'; -fx-border-insets: 75; -fx-border-radius: 10;">
+                    <children>
+                        <ImageView fx:id="card1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="-2.0" translateX="-5.0"
+                                   translateY="14.0">
+                            <image>
+                                <Image url="@../images/gray-back.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="card2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+                                   preserveRatio="true" rotate="-1.0" translateX="-2.5" translateY="7.0">
+                            <image>
+                                <Image url="@../images/gray-back.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="card3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                                   translateY="2.0">
+                            <image>
+                                <Image url="@../images/gray-back.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="card4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                                   rotate="1.0" translateX="2.5" translateY="7.0">
+                            <image>
+                                <Image url="@../images/gray-back.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="card5" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="2.0" translateX="5.0"
+                                   translateY="14.0">
+                            <image>
+                                <Image url="@../images/gray-back.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+
+                    <fx:define>
+                        <ArrayList fx:id="cards">
+                            <fx:reference source="card1"/>
+                            <fx:reference source="card2"/>
+                            <fx:reference source="card3"/>
+                            <fx:reference source="card4"/>
+                            <fx:reference source="card5"/>
+                        </ArrayList>
+                    </fx:define>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#flipCard" text="Check"/>
+            </children>
+        </VBox>
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Card Colors">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Grey"/>
+                        <MenuItem mnemonicParsing="false" text="Blue" onAction="#changeBackColorBlue"/>
+                        <MenuItem mnemonicParsing="false" text="Green"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</AnchorPane>
