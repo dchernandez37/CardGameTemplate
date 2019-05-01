@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     private static final String FXML_FILE = "sample.fxml";
-    private static final String TITLE = "Guess The Card";
+    private static final String TITLE = "Guess The sample.Card";
     protected static final Double STAGE_WIDTH = 700d;
     protected static final Double STAGE_HEIGHT = 600d;
 
@@ -23,8 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, STAGE_WIDTH, STAGE_HEIGHT));
         primaryStage.show();
     }
-
-
+    
     public static void main(String[] args) {
         launch(args);
     }

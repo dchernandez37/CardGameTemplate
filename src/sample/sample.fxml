@@ -12,50 +12,62 @@
 
 <?import java.util.ArrayList?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            style="-fx-background-color: CadetBlue;" xmlns="http://javafx.com/javafx/11.0.1"
+            style="-fx-background-color: #2D6672;" xmlns="http://javafx.com/javafx/8.0.202"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0"
               style="-fx-border-color: 'blue'; -fx-background-radius: 25;" AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                           translateY="40.0">
-                    <image>
-                        <Image url="@../images/purple-back.png"/>
-                    </image>
-                </ImageView>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" translateY="50.0">
+                    <children>
+                        <ImageView fx:id="dealer1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipDealer1" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/purple-back.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="dealer2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipDealer2" pickOnBounds="true" preserveRatio="true"
+                                   translateX="-30.0">
+                            <image>
+                                <Image url="@../images/purple-back.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
                 <HBox alignment="CENTER"
                       style="-fx-border-color: 'Gold'; -fx-border-insets: 75; -fx-border-radius: 10;">
+
                     <children>
-                        <ImageView fx:id="card1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipCard"
-                                   pickOnBounds="true" preserveRatio="true" rotate="-2.0" translateX="-5.0"
-                                   translateY="14.0">
+                        <ImageView fx:id="card1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipFirstCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="-10.0" translateX="-15.0"
+                                   translateY="25.0">
                             <image>
                                 <Image url="@../images/gray-back.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="card2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
-                                   preserveRatio="true" rotate="-1.0" translateX="-2.5" translateY="7.0">
+                        <ImageView fx:id="card2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipSecondCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="-5.0" translateX="-7.0"
+                                   translateY="12.0">
                             <image>
                                 <Image url="@../images/gray-back.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="card3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                                   translateY="2.0">
+                        <ImageView fx:id="card3" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipThirdCard"
+                                   pickOnBounds="true" preserveRatio="true" translateY="7.0">
                             <image>
                                 <Image url="@../images/gray-back.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="card4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                                   rotate="1.0" translateX="2.5" translateY="7.0">
+                        <ImageView fx:id="card4" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipFourthCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="5.0" translateX="7.0"
+                                   translateY="12.0">
                             <image>
                                 <Image url="@../images/gray-back.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="card5" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipCard"
-                                   pickOnBounds="true" preserveRatio="true" rotate="2.0" translateX="5.0"
-                                   translateY="14.0">
+                        <ImageView fx:id="card5" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#flipFifthCard"
+                                   pickOnBounds="true" preserveRatio="true" rotate="10.0" translateX="15.0"
+                                   translateY="25.0">
                             <image>
                                 <Image url="@../images/gray-back.png"/>
                             </image>
@@ -69,19 +81,24 @@
                             <fx:reference source="card3"/>
                             <fx:reference source="card4"/>
                             <fx:reference source="card5"/>
+                            <fx:reference source="dealer1"/>
+                            <fx:reference source="dealer2"/>
                         </ArrayList>
                     </fx:define>
                 </HBox>
-                <Button mnemonicParsing="false" onAction="#flipCard" text="Check"/>
+                <Button mnemonicParsing="false" onAction="#shuffle" text="Shuffle"/>
             </children>
         </VBox>
         <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Card Colors">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Grey"/>
-                        <MenuItem mnemonicParsing="false" text="Blue" onAction="#changeBackColorBlue"/>
-                        <MenuItem mnemonicParsing="false" text="Green"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorGray" text="Grey"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorBlue" text="Blue"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorGreen" text="Green"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorRed" text="Red"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorYellow" text="Yellow"/>
+                        <MenuItem mnemonicParsing="false" onAction="#changeBackColorPurple" text="Purple"/>
                     </items>
                 </Menu>
             </menus>
